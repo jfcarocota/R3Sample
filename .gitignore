@@ -42,3 +42,8 @@ crashlytics-build.properties
 
 # NuGetForUnity
 [Pp]ackages/packages.lock.json
+
+# Visual Studio / Rider generated
+*.csproj
+*.sln
+*.unityproj
