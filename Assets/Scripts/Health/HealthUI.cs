@@ -18,14 +18,14 @@ public class HealthUI : MonoBehaviour
                 hpLabel.text = $"{hp} / {player.MaxHp}";
                 hpBar.fillAmount = (float)hp / player.MaxHp;
             })
-            .AddTo(this);
+            .AddTo(this.destroyCancellationToken);
 
         // Solo reacciona cuando el jugador muere (hp llega a 0)
         player.HP
             .Where(hp => hp <= 0)
             .Take(1) // solo una vez
             .Subscribe(_ => OnPlayerDied())
-            .AddTo(this);
+            .AddTo(this.destroyCancellationToken);
     }
 
     private void OnPlayerDied()
